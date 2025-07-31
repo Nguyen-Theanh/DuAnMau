@@ -10,3 +10,4 @@
     <h2><?php echo $thoiTiet; ?></h2>
 </body>
 </html>
+12345678
