@@ -112,7 +112,7 @@
         <tr>
         <td><?= $product['id'] ?></td>
         <td><?= $product['name'] ?></td>
-        <td><img src="/PH58569/uploads/imgproduct/<?= htmlspecialchars($product['image']) ?>" width="100px"></td>
+        <td><img src="/PH58569/uploads/imgproduct/<?= $product['image'] ?>" width="100px"></td>
         <td><?= $product['price'] ?></td>
         <td><?= $product['idcategory'] ?></td>
         <td style="width: 500px;"><?= $product['description'] ?></td>

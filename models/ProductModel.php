@@ -23,7 +23,7 @@ class ProductModel
     }
     public function searchProduct($keyword)
     {
- $sql = "SELECT * FROM products WHERE name LIKE :keyword";
+    $sql = "SELECT * FROM products WHERE name LIKE :keyword";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute([
         ':keyword' => '%' . $keyword . '%'

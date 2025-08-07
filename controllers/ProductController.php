@@ -1,8 +1,9 @@
 <?php
-// có class chứa các function thực thi xử lý logic 
+require_once 'models/CategoryModel.php';
 class ProductController
 {
     public $modelProduct;
+    public $modelCategory;
 
     public function __construct()
     {
@@ -44,13 +45,14 @@ public function SuaSP()
         $id = $_POST['id'];
         $product = $this->modelProduct->getProductById($id); // Lấy lại ảnh cũ
 
-        // Xử lý ảnh
-        if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-            $target_dir = "uploads/";
-            $imagePath = $target_dir . basename($_FILES["image"]["name"]);
-            move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
+if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+    $target_dir = 'uploads/imgproduct/';
+    $imageName = time() . '_' . basename($_FILES["image"]["name"]); // đặt tên file tránh trùng
+    $imagePath = $target_dir . $imageName;
+    move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
+    $product['image'] = $imageName;
         } else {
-            $imagePath = $product['image']; // Không up ảnh thì dùng ảnh cũ
+            $imageName = $product['image'];
         }
 
         $data = [
@@ -69,7 +71,7 @@ public function SuaSP()
         $id = $_GET['id'];
         $product = $this->modelProduct->getProductById($id);
         $categories = $this->modelCategory->getAllCategories();
-        include 'views/sua_sp.php';
+        include 'views/suasp.php';
     }
 }
 
