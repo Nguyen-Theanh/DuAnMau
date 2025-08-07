@@ -11,14 +11,21 @@ require_once './controllers/ProductController.php';
 // Require toàn bộ file Models
 require_once './models/ProductModel.php';
 
-// Route
-$act = $_GET['act'] ?? '/';
+$controller = new ProductController();
+$action = $_GET['action'] ?? 'home';
 
-
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
-
-match ($act) {
-    // Trang chủ
-    '/'=>(new ProductController())->Home(),
-
-};
+switch ($action) {
+    case 'qlsp':
+        $controller->QLSP(); // trang quản lý
+        break;
+    case 'home':
+    default:
+        $controller->Home(); // trang chủ
+        break;
+    case 'xoasp':
+        $controller->XoaSP();
+        break;
+    case 'suasp':
+    $controller->SuaSP();
+    break;
+}

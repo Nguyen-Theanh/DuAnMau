@@ -1,6 +1,6 @@
 <?php 
 
-define('BASE_URL'       , 'http://localhost/duanmau/mvc-oop-basic/');
+define('BASE_URL'       , 'http://localhost:8080/PH58569/');
 
 define('DB_HOST'    , 'localhost');
 define('DB_PORT'    , 3306);
@@ -14,8 +14,6 @@ define('DB_OPTIONS', [
 ]);
 
 define('PATH_ROOT'    , __DIR__ . '/../');
-define('PATH_VIEW',         PATH_ROOT . 'views/');
-
 define('PATH_VIEW_MAIN',    PATH_ROOT . 'views/trangchu.php');
 
 

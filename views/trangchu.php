@@ -205,8 +205,11 @@
   <div class="logo">Petzone</div>
 
   <div class="search-bar">
-    <input type="text" placeholder="Tìm kiếm...">
-    <button><i class="fa fa-search"></i></button>
+    <form action="" method="get">
+    <input type="hidden" name="action" id="" value="home">
+    <input type="text" name="keyword" placeholder="Tìm kiếm..." value="<?= $_GET['keyword'] ?? '' ?>" style="width: 500px;">
+    <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
 
   <div class="header-icons">
@@ -242,7 +245,7 @@
   </nav>
 
 <div class="banner">
-    <img src="image/banner.png" alt="" width="950px">
+    <img src="uploads/imgproduct/banner.png" alt="" width="950px">
 </div>
 <div class="spcs">
     <h1 style="display: flex; justify-content: center; color: #07b3c6ff;">Sản phẩm của shop</h1>
