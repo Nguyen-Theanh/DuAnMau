@@ -14,11 +14,11 @@ class ProductModel
         }
     }
 
-    public function getAllProducts()
+    public function getAllProduct()
     {
-        $sql = "SELECT p.*,c.name as categogies_name
+        $sql = "SELECT p.*,c.name as categories_name
                 FROM products p
-                LEFT JOIN categogies c ON p.idcategory = c.id";
+                LEFT JOIN categories c ON p.idcategory = c.id";
         $stmt = $this->pdo->prepare($sql); 
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -51,5 +51,12 @@ class ProductModel
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$category_id,$currentProductId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getProductById($id){
+        $sql = "SELECT * FROM products WHERE id = :id";
+        $stmt = $this -> pdo -> prepare($sql);
+        $stmt->execute(['id'=>$id]);
+        return $stmt->fetch();
     }
 }

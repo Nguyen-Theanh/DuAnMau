@@ -10,6 +10,11 @@ try {
             $controller->Home();
             break;
 
+        case 'productDetail':
+            $controller = new ProductController();
+            $controller -> detail();
+            break;
+        
         
     }
 }catch(Exception $e){

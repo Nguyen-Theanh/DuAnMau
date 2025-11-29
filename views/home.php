@@ -60,6 +60,33 @@
       </div>
     </div>
 
+    <div class="container mb-4">
+      <h1 class="text-center fw-bold" style="color: #07b3c6;">Sản phẩm của shop</h1>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 justify-content-center">
+      <?php foreach ($products as $product): ?>
+        <div class="col">
+          <div class="card product-card h-100 shadow-sm">
+            <a href="index.php?action=productDetail&id=<?= $product['id'] ?>"
+                class="text-decoration-none text-dark h-100 d-flex flex-column">
+              <img src="/BASE-DUANMAU/uploads/imgproduct/<?= htmlspecialchars($product['image']) ?>" 
+                class="card-img-top product-img">
+              <div class="card-body d-flex flex-column text-center p-3">
+                <h5 class="card-title product-title mb-2"><?=htmlspecialchars($product['name']) ?></h5>
+                <p class="card-text fw-bold text-danger mt-auto mb-0 fs-5">
+                  <?= number_format($product['price']) ?> đ
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
     </main>
+    <?php require_once 'partials/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
