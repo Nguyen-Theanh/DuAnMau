@@ -77,7 +77,7 @@ class UserController{
             $_SESSION['user'] = $user;
 
             if($user['role'] === 'admin') {
-                header('Location: index.php?action=productadmin');
+                header('Location: index.php?action=indexproduct');
             } else{
                 header('Location: index.php?action=home');
             }

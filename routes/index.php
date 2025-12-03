@@ -55,6 +55,22 @@ try {
             $controller = new UserController();
             $controller->updateAddress();
             break;
+        case 'indexproduct':
+            $controller = new ProductController();
+            $controller->indexProduct();
+            break;
+        case 'createproduct':
+            $controller = new ProductController();
+            $controller->createProduct();
+            break;
+        case 'editproduct':
+            $controller = new ProductController();
+            $controller->editProduct();
+            break;
+        case 'deleteproduct':
+            $controller = new ProductController();
+            $controller->deleteProduct();
+            break;
     }
 } catch (Exception $e) {
     echo $e->getMessage();

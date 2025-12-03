@@ -32,10 +32,10 @@ class ProductModel
 
     public function searchProduct($keyword)
     {
-    $sql = "SELECT p.*,c.name as categogies_name
+    $sql = "SELECT p.*,c.name as categories_name
             FROM products p
-            LEFT JOIN categogies c ON p.idcategory = c.id 
-            WHERE name LIKE :keyword";
+            LEFT JOIN categories c ON p.idcategory = c.id 
+            WHERE p.name LIKE :keyword";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute([
         ':keyword' => '%' . $keyword . '%'
@@ -59,4 +59,49 @@ class ProductModel
         $stmt->execute(['id'=>$id]);
         return $stmt->fetch();
     }
+
+    public function deleteProduct($id){
+        $sql = "DELETE FROM products WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute(['id'=>$id]);
+    }
+
+    public function getProductsByCategory($categoryID){
+        $sql = "SELECT p.*, c.name as category_name 
+                FROM products p 
+                LEFT JOIN categories c ON p.idcategory = c.id
+                WHERE p.idcategory = :idcategory";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':idcategory' => $categoryID]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    }
+
+    public function updateProduct($data){
+        $sql = "UPDATE products 
+                SET name = :name, price = :price, image = :image, description = :description, idcategory = :idcategory 
+                WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':name' => $data['name'],
+            ':price' => $data['price'],
+            ':image' => $data['image'],
+            ':description' => $data['description'],
+            ':idcategory' => $data['idcategory'],
+            ':id' => $data['id']
+        ]);
+    }
+
+    public function createProduct($data){
+        $sql ="INSERT INTO products (name, price, description, image, idcategory) 
+                VALUES (:name, :price, :description, :image, :idcategory)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':name' => $data['name'],
+            ':price' => $data['price'],
+            ':description' => $data['description'],
+            ':image' => $data['image'],
+            ':idcategory' => $data['idcategory']
+        ]);
+    }
+
 }

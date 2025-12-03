@@ -155,7 +155,7 @@
     <div class="header-icons">
         <a href="#" title="Giỏ hàng"><i class="fa-solid fa-cart-shopping"></i></a>
         <?php if (!empty($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'): ?>
-          <a href="?action=productadmin" title="Về trang quản trị"><i class="fa-solid fa-user-shield"></i></a>
+          <a href="?action=indexproduct" title="Về trang quản trị"><i class="fa-solid fa-user-shield"></i></a>
         <?php elseif (!empty($_SESSION['user'])): ?>
           <a href="?action=account"  title="Tài khoản"><i class="fa-solid fa-user"></i></a>
         <?php else: ?>
