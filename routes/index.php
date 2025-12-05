@@ -71,6 +71,45 @@ try {
             $controller = new ProductController();
             $controller->deleteProduct();
             break;
+        case 'categories':
+            $controller = new CategoryController();
+            $controller->index();
+            break;
+        case 'createcategory':
+            $controller = new CategoryController();
+            $controller->create();
+            break;
+        case 'storecategory':
+            $controller = new CategoryController();
+            $controller->store();
+            break;
+        case 'editcategory':
+            $id = $_GET['id'] ?? 0;
+            if($id){
+                $controller = new CategoryController();
+                $controller->edit($id);
+            } else{
+                header("Location: index.php?action=categories");
+            }
+            break;
+        case 'updatecategory':
+            $id = $_GET['id'] ?? 0;
+            if($id){
+                $controller = new CategoryController();
+                $controller->update($id);
+            } else{
+                header("Location: index.php?action=categories");
+            }
+            break;
+        case 'deletecategory':
+            $id = $_GET['id'] ?? 0;
+            if($id){
+                $controller = new CategoryController();
+                $controller->delete($id);
+            } else{
+                header("Location: index.php?action=categories");
+            }
+            break;
     }
 } catch (Exception $e) {
     echo $e->getMessage();
