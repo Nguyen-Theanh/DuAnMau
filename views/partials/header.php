@@ -171,21 +171,21 @@
             <li>
                 <a href="#">Thú cưng</a>
                 <ul>
-                    <li><a href="#">Chó</a></li>
-                    <li><a href="#">Mèo</a></li>
+                    <li><a href="?action=home&category_id=7">Chó</a></li>
+                    <li><a href="?action=home&category_id=8">Mèo</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Sức khỏe</a>
                 <ul>
-                    <li><a href="#">Thức ăn cho chó</a></li>
-                    <li><a href="#"></a>Thức ăn cho mèo</li>
-                    <li><a href="#"></a>Vệ sinh</li>
-                    <li><a href="#">Thuốc</a></li>
+                    <li><a href="?action=home&category_id=1">Thức ăn cho chó</a></li>
+                    <li><a href="?action=home&category_id=2">Thức ăn cho mèo</a></li>
+                    <li><a href="?action=home&category_id=5">Vệ sinh</a></li>
+                    <li><a href="?action=home&category_id=6">Thuốc</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">Phụ kiện</a>
+                <a href="?action=home&category_id=4">Phụ kiện</a>
             </li>
         </ul>
     </nav>

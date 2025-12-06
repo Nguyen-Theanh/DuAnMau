@@ -19,6 +19,18 @@ try {
             $controller = new CommentController();
             $controller->store();
             break;
+        case 'managecomments':
+            $controller = new CommentController();
+            $controller->index();
+            break;
+        case 'commenttoggle':
+            $controller = new CommentController();
+            $controller->toggle();
+            break;
+        case 'commentdelete':
+            $controller = new CommentController();
+            $controller->delete();
+            break;
         case 'login':
             $controller = new UserController();
             $controller->LoginForm();
@@ -51,6 +63,32 @@ try {
             $controller = new UserController();
             $controller->changePassword();
             break;
+        case 'indexuser':
+            $controller = new UserController();
+            $controller->index();
+            break;
+        case 'lockuser':
+        case 'lock_user':
+            $id = $_GET['id'] ?? 0;
+            $status = $_GET['status'] ?? 0; 
+            if ($id) {
+                $controller = new UserController();
+                $controller->lockUser($id, $status);
+            } else {
+                header('Location: index.php?action=indexuser');
+            }
+            break;
+        case 'update_role':
+            $id = $_GET['id'] ?? 0;
+            if ($id) {
+                $controller = new UserController();
+                $controller->updateRole($id);
+            } else {
+                header('Location: index.php?action=indexuser');
+            }
+            break;
+
+
         case 'update_address':
             $controller = new UserController();
             $controller->updateAddress();
@@ -85,28 +123,28 @@ try {
             break;
         case 'editcategory':
             $id = $_GET['id'] ?? 0;
-            if($id){
+            if ($id) {
                 $controller = new CategoryController();
                 $controller->edit($id);
-            } else{
+            } else {
                 header("Location: index.php?action=categories");
             }
             break;
         case 'updatecategory':
             $id = $_GET['id'] ?? 0;
-            if($id){
+            if ($id) {
                 $controller = new CategoryController();
                 $controller->update($id);
-            } else{
+            } else {
                 header("Location: index.php?action=categories");
             }
             break;
         case 'deletecategory':
             $id = $_GET['id'] ?? 0;
-            if($id){
+            if ($id) {
                 $controller = new CategoryController();
                 $controller->delete($id);
-            } else{
+            } else {
                 header("Location: index.php?action=categories");
             }
             break;

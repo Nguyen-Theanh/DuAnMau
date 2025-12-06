@@ -94,6 +94,6 @@
 <nav class="admin-nav">
     <a href="index.php?action=indexproduct">Quản lý sản phẩm</a>
     <a href="index.php?action=categories">Quản lý danh mục</a>
-    <a href="#">Quản lý người dùng</a>
-    <a href="#">Quản lý bình luận</a>
+    <a href="index.php?action=indexuser">Quản lý người dùng</a>
+    <a href="index.php?action=managecomments">Quản lý bình luận</a>
 </nav>
